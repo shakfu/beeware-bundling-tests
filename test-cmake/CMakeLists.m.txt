@@ -1,6 +1,8 @@
 set(APP_NAME PyApp)
 
-project(${APP_NAME} LANGUAGES C)
+project(${APP_NAME})
+
+set(CMAKE_C_FLAGS "-x objective-c")
 
 cmake_minimum_required(VERSION 3.1)
 
@@ -14,7 +16,8 @@ set(PYFRAMEWORK ${SUPPORT}/Python.xcframework/macos-arm64_x86_64)
 set(STDLIB ${SUPPORT}/python-stdlib)
 set(LIB_DYNLOAD ${STDLIB}/lib-dynload)
 
-add_executable(${APP_NAME} MACOSX_BUNDLE main.c)
+
+add_executable(${APP_NAME} MACOSX_BUNDLE main.m)
 
 set_source_files_properties(
     ${STDLIB}
@@ -46,7 +49,15 @@ set_target_properties(libpython PROPERTIES
         INTERFACE_INCLUDE_DIRECTORIES ${PYFRAMEWORK}/Headers
 )
 
-target_link_libraries(${APP_NAME} libpython)
+target_link_libraries(${APP_NAME}
+    libpython
+)
+
+target_link_libraries(${APP_NAME}
+    "-framework Cocoa"
+    "-framework AppKit"
+    "-framework Foundation"
+)
 
 
 # Destination paths below are relative to ${CMAKE_INSTALL_PREFIX}
