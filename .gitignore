@@ -1,3 +1,9 @@
+.DS_Store
+**/Support/python-stdlib
+**/Support/Python.xcframework
+**/Support/VERSIONS
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

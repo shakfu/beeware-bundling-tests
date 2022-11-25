@@ -1,0 +1,17 @@
+# Generated using Python 3.X.0
+[paths]
+app_path = "Demo/app"
+app_packages_path = "Demo/app_packages"
+info_plist_path = "Demo/Info.plist"
+entitlements_path = "Demo/demo.entitlements"
+
+support_path = "Support"
+
+
+icon.16 = "Demo/Assets.xcassets/Demo.appiconset/icon-16.png"
+icon.32 = "Demo/Assets.xcassets/Demo.appiconset/icon-32.png"
+icon.64 = "Demo/Assets.xcassets/Demo.appiconset/icon-64.png"
+icon.128 = "Demo/Assets.xcassets/Demo.appiconset/icon-128.png"
+icon.256 = "Demo/Assets.xcassets/Demo.appiconset/icon-256.png"
+icon.512 = "Demo/Assets.xcassets/Demo.appiconset/icon-512.png"
+icon.1024 = "Demo/Assets.xcassets/Demo.appiconset/icon-1024.png"
