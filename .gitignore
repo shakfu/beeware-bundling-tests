@@ -2,7 +2,8 @@
 **/Support/python-stdlib
 **/Support/Python.xcframework
 **/Support/VERSIONS
-
+**/project.xcworkspace
+**/xcuserdata
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

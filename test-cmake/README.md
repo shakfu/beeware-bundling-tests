@@ -1,6 +1,8 @@
 # About this test
 
-Attempt to build a build using cmake, beeware statically compiled python and c-api entry point.
+Attempt to a build exclusively using c and cmake using beeware statically compiled python and c-api entry point.
 
+
+- will probably have to switch CFoundation
 
 
