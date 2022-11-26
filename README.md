@@ -1,6 +1,6 @@
 # beeware-bundling-tests
 
-A bunch of test to see how to best the amazing beeware toolkit
+A bunch of experiments using the amazing beeware toolkit
 
 
 ## Do this first:
