@@ -2,7 +2,7 @@ set(APP_NAME PyApp)
 
 project(${APP_NAME})
 
-set(CMAKE_C_FLAGS "-x objective-c")
+#set(CMAKE_C_FLAGS "-x objective-c")
 
 cmake_minimum_required(VERSION 3.1)
 
@@ -75,13 +75,4 @@ install(CODE "include(BundleUtilities)
 
 set(CPACK_GENERATOR "DRAGNDROP")
 include(CPack)
-
-# set(CPACK_SOURCE_GENERATOR "ZIP")
-# set(CPACK_SOURCE_IGNORE_FILES
-#   \\.git/
-#   build/
-#   ".*~$"
-# )
-# set(CPACK_VERBATIM_VARIABLES YES)
-# include(CPack)
 
