@@ -61,23 +61,12 @@ set_target_properties(libpython PROPERTIES
         INTERFACE_INCLUDE_DIRECTORIES ${PYFRAMEWORK}/Headers
 )
 
-# target_link_libraries(${APP_NAME}
-#     libpython
-# )
-
-# target_link_libraries(${APP_NAME}
-#     "-framework Cocoa"
-#     "-framework AppKit"
-#     "-framework Foundation"
-# )
-
 target_link_libraries(${APP_NAME}
     libpython
     "-framework Cocoa"
     "-framework AppKit"
     "-framework Foundation"
 )
-
 
 # Destination paths below are relative to ${CMAKE_INSTALL_PREFIX}
 install(TARGETS ${APP_NAME}

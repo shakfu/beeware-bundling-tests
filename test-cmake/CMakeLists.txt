@@ -1,18 +1,24 @@
-set(APP_NAME PyApp)
+set(APP_NAME Demo)
 
-project(${APP_NAME} LANGUAGES C)
+project(${APP_NAME})
 
 cmake_minimum_required(VERSION 3.1)
 
 set(CMAKE_C_STANDARD 11)
 
+# sources
 set(PROJ_RESOURCES ${CMAKE_SOURCE_DIR}/resources)
 set(PROJ_ICONS ${PROJ_RESOURCES}/icns)
 
-set(SUPPORT ${CMAKE_SOURCE_DIR}/../test-xcode/Demo/Support)
+set(DEMO ${CMAKE_SOURCE_DIR}/../test-xcode/Demo)
+set(SUPPORT ${DEMO}/Support)
 set(PYFRAMEWORK ${SUPPORT}/Python.xcframework/macos-arm64_x86_64)
 set(STDLIB ${SUPPORT}/python-stdlib)
 set(LIB_DYNLOAD ${STDLIB}/lib-dynload)
+
+# destinations
+set(RESOURCES ${APP_NAME}.app/Contents/Resources)
+
 
 add_executable(${APP_NAME} MACOSX_BUNDLE main.c)
 
@@ -22,7 +28,12 @@ set_source_files_properties(
     MACOSX_PACKAGE_LOCATION
     Resources
 )
-file(COPY ${STDLIB} DESTINATION "${APP_NAME}.app/Contents/Resources")
+file(COPY ${STDLIB} DESTINATION "${RESOURCES}/support")
+file(COPY ${DEMO}/Demo/app DESTINATION "${RESOURCES}")
+file(COPY ${DEMO}/Demo/app_packages DESTINATION "${RESOURCES}")
+file(COPY ${DEMO}/Demo/Assets.xcassets DESTINATION "${RESOURCES}")
+file(COPY ${DEMO}/Demo/demo.entitlements DESTINATION "${RESOURCES}")
+# file(COPY ${DEMO}/Demo/Info.plist DESTINATION "${RESOURCES}")
 
 set(ICON_NAME "generic_app.icns")
 set(ICON_PATH ${PROJ_ICONS}/${ICON_NAME})
@@ -37,6 +48,8 @@ set_target_properties(${APP_NAME} PROPERTIES
     MACOSX_BUNDLE_BUNDLE_VERSION "0.1"
     MACOSX_BUNDLE_SHORT_VERSION_STRING "0.1"
     MACOSX_BUNDLE_ICONFILE ${ICON_NAME}
+    # this should not be hardcoded (just a hack for now)
+    MACOSX_BUNDLE_INFO_PLIST ${DEMO}/Demo/Info.plist    
     #MACOSX_BUNDLE_INFO_PLIST ${CMAKE_SOURCE_DIR}/cmake/customtemplate.plist.in
 )
 
@@ -67,13 +80,4 @@ install(CODE "include(BundleUtilities)
 
 set(CPACK_GENERATOR "DRAGNDROP")
 include(CPack)
-
-# set(CPACK_SOURCE_GENERATOR "ZIP")
-# set(CPACK_SOURCE_IGNORE_FILES
-#   \\.git/
-#   build/
-#   ".*~$"
-# )
-# set(CPACK_VERBATIM_VARIABLES YES)
-# include(CPack)
 
