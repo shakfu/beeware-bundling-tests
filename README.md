@@ -5,7 +5,7 @@ A bunch of experiments using the amazing [beeware](https://github.com/beeware) t
 
 ## Do this first:
 
-Run the following to download Python3.10 release from Beeware's github repo (change version as required)
+Run the following to download Python3.10 release from beeware's [Python-Apple-support repo](https://github.com/beeware/Python-Apple-support) (change version as required)
 
 ```bash
 ./setup.sh
@@ -25,4 +25,13 @@ Run the following to download Python3.10 release from Beeware's github repo (cha
 - [ ] [test-cmake-c](test-cmake-c): using `cmake` as the build mechanism but with entry point written in c (`main.c`).
 
 	Not working yet.
+
+
+## References
+
+- [beeware](https://github.com/beeware) toolkit
+
+- [cmake](https://cmake.org) and cmake [BundleUtilities](https://cmake.org/cmake/help/latest/module/BundleUtilities.html)
+
+- [issue](https://github.com/beeware/briefcase-macOS-Xcode-template/issues/16) where these efforts are briefly discussed.
 
